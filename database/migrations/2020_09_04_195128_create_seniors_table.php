@@ -18,11 +18,13 @@ class CreateSeniorsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('name');
             $table->Integer('age');
+            $table->string('home_country');
+            $table->string('previous_job');
             $table->string('hobby');
             $table->string('need_person');
             $table->string('message');
-            $table->string('img_name');
-            $table->string('public_id');
+            $table->string('image_path')->nullable();
+            $table->string('public_id')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
