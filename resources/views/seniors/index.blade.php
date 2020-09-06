@@ -14,8 +14,7 @@
           <h5 class="card-title">{{ $senior->name }}({{ $senior->age }})</h5>
           <p class="card-text">趣味：{{ $senior->hobby }}</p>
           <p class="card-text">一言：{{ $senior->message }}</p>
-          <a href="{{ route('seniors.show', $senior->id) }}" class="btn btn-primary">おじちゃんと話す</a>
-          <a href="{{ route('seniors.edit', $senior->id) }}" class="btn btn-primary">編集する</a>
+          <a href="{{ route('seniors.show', $senior->id) }}" class="btn btn-primary">もっと詳しく</a>
      </div>
 </div>
 @endforeach

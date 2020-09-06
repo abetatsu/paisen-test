@@ -22,5 +22,32 @@
 </div>
 <div class="text-center">
      <a href="{{ route('seniors.index') }}" class="btn btn-primary d-inline-block">一覧に戻る</a>
+     <a href="{{ route('seniors.edit', $senior->id) }}" class="btn btn-primary">編集する</a>
+</div>
+<div class="row justify-content-center">
+     <div class="col-md-8">
+          <form action="{{ route('comments.store') }}" method="POST">
+               @csrf
+               <input type="hidden" name="senior_id" value="{{ $senior->id }}">
+               <div class="form-group">
+                    <label>コメント</label>
+                    <textarea class="form-control" placeholder="内容" rows="5" name="body"></textarea>
+               </div>
+               <button type="submit" class="btn btn-primary">コメントする</button>
+          </form>
+     </div>
+</div>
+<div class="row justify-content-center">
+     <div class="col-md-8">
+          @foreach ($senior->comments as $comment)
+          <div class="card mt-3">
+               <h5 class="card-header">投稿者：<a href="{{ route('users.show', $comment->user->id) }}">{{ $comment->user->name }}</a></h5>
+               <div class="card-body">
+                    <h5 class="card-title">投稿日時：{{ $comment->created_at }}</h5>
+                    <p class="card-text">内容：{{ $comment->body }}</p>
+               </div>
+          </div>
+          @endforeach
+     </div>
 </div>
 @endsection

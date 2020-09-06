@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<form action="{{ route('seniors.update', $senior->id) }}" method="POST" class="col-sm-6 mx-auto" enctype="multipart/form-data">
-     @method('PUT')
+<form action="{{ route('seniors.store') }}" method="POST" class="col-sm-6 mx-auto" enctype="multipart/form-data">
      @csrf
      <div class="form-group">
           <label for="image">プロフィール画像を選択してください</label>
@@ -10,16 +9,12 @@
      </div>
      <div class="form-group">
           <label for="name">名前またはニックネーム</label>
-          <input type="text" class="form-control" id="name" name="name" value="{{ $senior->name }}">
+          <input type="text" class="form-control" id="name" name="name" value="">
      </div>
      <div class="form-group">
           <label for="age">年齢</label>
           <select class="form-control" id="age" name="age">
-               @if(!empty($senior->age))
-               <option value="{{ $senior->age }}" selected>{{ $senior->age }}</option>
-               @else
                <option value="">選択してください</option>
-               @endif
                <option value="40">40</option>
                <option value="41">41</option>
                <option value="42">42</option>
@@ -96,11 +91,7 @@
      <div class="form-group">
           <label for="home_country">出身</label>
           <select class="form-control" id="home_country" name="home_country">
-               @if(!empty($senior->home_country))
-               <option value="{{ $senior->home_country }}" selected>{{ $senior->home_country }}</option>
-               @else
                <option value="">選択してください</option>
-               @endif
                <option value="北海道">北海道</option>
                <option value="青森県">青森県</option>
                <option value="岩手県">岩手県</option>
@@ -154,11 +145,7 @@
      <div class="form-group">
           <label for="previous_job">前職</label>
           <select class="form-control" id="previous_job" name="previous_job">
-               @if(!empty($senior->previous_job))
-               <option value="{{ $senior->previous_job }}" selected>{{ $senior->previous_job }}</option>
-               @else
                <option value="">選択してください</option>
-               @endif
                <option value="製造業">製造業</option>
                <option value="建築業">建築業</option>
                <option value="設備業">設備業</option>
@@ -179,17 +166,17 @@
      </div>
      <div class="form-group">
           <label for="hobby">趣味・特技</label>
-          <input type="text" class="form-control" id="hobby" name="hobby" value="{{ $senior->hobby }}">
+          <input type="text" class="form-control" id="hobby" name="hobby" value="">
      </div>
      <div class="form-group">
           <label for="need_person">どんな人と話したいか</label>
-          <input type="text" class="form-control" id="need_person" name="need_person" value="{{ $senior->need_person }}">
+          <input type="text" class="form-control" id="need_person" name="need_person" value="">
      </div>
      <div class="form-group">
           <label for="message">一言</label>
-          <textarea class="form-control" id="message" name="message" rows="3">{{ $senior->message }}</textarea>
+          <textarea class="form-control" id="message" name="message" rows="3"></textarea>
      </div>
-     <input type="submit" value="変更を保存する" class="btn btn-primary">
+     <input type="submit" value="登録する" class="btn btn-primary">
 </form>
 <div class="text-center">
      <a href="{{ route('seniors.index') }}" class="btn btn-primary d-inline-block">一覧に戻る</a>

@@ -21,4 +21,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('users', 'UserController');
 Route::resource('seniors', 'SeniorController');
+Route::resource('comments', 'CommentController');
 

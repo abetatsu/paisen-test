@@ -3,10 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
+use App\Senior;
+use App\Comment;
+use Auth;
 
-class UserController extends Controller
+class CommentController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -35,7 +41,17 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $senior = Senior::find($request->senior_id);
+
+        $comment = new Comment;
+
+        $comment->body = $request->body;
+        $comment->user_id = Auth::id();
+        $comment->senior_id = $request->senior_id;
+
+        $comment->save();
+
+        return view('seniors.show', compact('senior'));
     }
 
     /**
@@ -46,9 +62,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
-
-        return view('users.show', compact('user'));
+        //
     }
 
     /**

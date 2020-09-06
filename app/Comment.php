@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Senior extends Model
+class Comment extends Model
 {
     protected $fillable = [
-        'name', 'age', 'hobby', 'need_person', 'message', 'img_name', 'public_id'
+        'user_id', 'senior_id', 'body'
     ];
 
     public function user()
@@ -15,8 +15,8 @@ class Senior extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function comments()
+    public function senior()
     {
-        return $this->hasMany('App\Comment');
+        return $this->belongsTo('App\Senior');
     }
 }
