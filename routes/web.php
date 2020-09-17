@@ -22,5 +22,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('users', 'UserController');
 Route::resource('seniors', 'SeniorController');
 Route::resource('comments', 'CommentController');
-Route::get('/calender', 'CalendarController@show');
+
+Route::get('/holiday', 'CalendarController@getHoliday');
+Route::post('/holiday', 'CalendarController@postHoliday');
+Route::get('/holiday/{id}', 'CalendarController@getHolidayId');
+Route::delete('/holiday', 'CalendarController@deleteHoliday');
+
+Route::get('/calendar', 'CalendarController@index');
 
