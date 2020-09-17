@@ -1,6 +1,9 @@
 <?php
 
 namespace App;
+
+use Carbon\Carbon;
+
 class Calendar
 {
      private $holidays;
@@ -11,24 +14,25 @@ class Calendar
      private $html;
      public function showCalendarTag($m, $y)
      {
+          $now = Carbon::now();
           $year = $y;
           $month = $m;
           if ($year == null) {
                // システム日付を取得する。
-               $year = date("Y");
-               $month = date("m");
+               $year = $now->year;
+               $month = $now->month;
           }
 
-          $prev = strtotime('-1 month', mktime(0, 0, 0, $month, 1, $year));
-          $prev_year = date("Y",$prev);
-          $prev_month = date("m",$prev);
+          $prev = $now->setDate($year, $month, 1)->subMonth();
+          $prev_year = $prev->year;
+          $prev_month = $prev->month;
 
-          $next = strtotime('+1 month',mktime(0, 0, 0, $month, 1, $year));
-          $next_year = date("Y",$next);
-          $next_month = date("m",$next);
+          $next = $now->setDate($year, $month, 1)->addMonth();
+          $next_year = $next->year;
+          $next_month = $next->month;
 
-          $firstWeekDay = date("w", mktime(0, 0, 0, $month, 1, $year));// 1日の曜日(0:日曜日、6:土曜日)
-          $lastDay = date("t", mktime(0, 0, 0, $month, 1, $year));// 指定した月の最終日
+          $firstWeekDay = Carbon::create($year, $month, 1)->dayOfWeek;// 1日の曜日(0:日曜日、6:土曜日)
+          $lastDay = Carbon::create($year, $month, 1)->daysInMonth;// 指定した月の最終日
           // 日曜日からカレンダーを表示するため前月の余った日付をループの初期値にする
           $day = 1 - $firstWeekDay;
           $this->html = <<< EOS
@@ -58,7 +62,7 @@ EOS;
                          $this->html .= "<td>&nbsp;</td>";
                     } else {
                          $this->html .= "<td>" . $day . "&nbsp";
-                         $target = date("Y-m-d", mktime(0, 0, 0, $month, $day, $year));
+                         $target = $now->setDate($year, $month, $day)->toDateString();
                          foreach($this->holidays as $val) {
                               if ($val->day == $target) {
                                    $this->html .= $val->description;
