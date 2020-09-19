@@ -98,25 +98,25 @@
                 <a href="https://vapor.laravel.com">Vapor</a>
                 <a href="https://github.com/laravel/laravel">GitHub</a>
             </div>
-            <!-- Slider main container -->
-            <div class="swiper-container">
-                <!-- Additional required wrapper -->
-                <div class="swiper-wrapper" style="width:600px; height:300px;">
-                    <!-- Slides -->
-                    <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1600076571353-352c343a5e82?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" style="background-position:center;"></div>
-                    <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1599929367351-cecb931ab4af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" style="background-position:center;"></div>
-                    <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1600096194101-cce68857691f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80" style="background-position:center;"></div>
-                </div>
-                <!-- If we need pagination -->
-                <div class="swiper-pagination"></div>
-
-                <!-- If we need navigation buttons -->
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-
-                <!-- If we need scrollbar -->
-                <div class="swiper-scrollbar"></div>
+        </div>
+        <!-- Slider main container -->
+        <div class="swiper-container">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper"  style="width:600px; height:300px;">
+                <!-- Slides -->
+                <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1600076571353-352c343a5e82?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" style="background-position:center;"></div>
+                <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1599929367351-cecb931ab4af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" style="background-position:center;"></div>
+                <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1600096194101-cce68857691f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80" style="background-position:center;"></div>
             </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+    
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+    
+            <!-- If we need scrollbar -->
+            <div class="swiper-scrollbar"></div>
         </div>
     </div>
 </body>
