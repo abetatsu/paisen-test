@@ -30,3 +30,7 @@ Route::delete('/holiday', 'CalendarController@deleteHoliday');
 
 Route::get('/calendar', 'CalendarController@index');
 
+Route::get('/contact', 'ContactController@index')->name('contact.index');
+Route::patch('/contact/confirm', 'ContactController@confirm')->name('contact.confirm');
+Route::post('/contact/thanks', 'ContactController@send')->name('contact.send');
+
