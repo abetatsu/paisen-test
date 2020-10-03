@@ -15,6 +15,7 @@
           <p class="card-text">趣味：{{ $senior->hobby }}</p>
           <p class="card-text">一言：{{ $senior->message }}</p>
           <a href="{{ route('seniors.show', $senior->id) }}" class="btn btn-primary">もっと詳しく</a>
+          <toaster-component></toaster-component>
      </div>
 </div>
 @endforeach
